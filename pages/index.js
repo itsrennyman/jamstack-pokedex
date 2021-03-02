@@ -1,3 +1,5 @@
+import Navbar from "../components/Navbar";
+
 export async function getStaticProps() {
   const fs = require("fs");
   const raw = fs.readFileSync("./assets/datasources/pokemon.json");
@@ -13,8 +15,10 @@ String.prototype.capitalize = function () {
 };
 
 const Index = ({ pokemon }) => (
-  <div className="bg-gray-100 p-10 min-h-screen">
-    <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+  <div className="bg-gray-100 min-h-screen">
+    <Navbar />
+
+    <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 sm:p-6 lg:p-8">
       {pokemon.map((pkmn, key) => (
         <li
           key={key}
@@ -40,7 +44,7 @@ const Index = ({ pokemon }) => (
               </p>
             </div>
             <img
-              className="w-12 h-12 rounded-full flex-shrink-0"
+              className="w-12 h-12 flex-shrink-0"
               src={`/images/${pkmn.id}.png`}
               alt=""
             />
