@@ -47,7 +47,7 @@ const Index = ({ pokemon }) => (
                 </div>
                 <img
                   className="w-12 h-12 flex-shrink-0"
-                  src={`https://ik.imagekit.io/animesplash/${pkmn.id}.png`}
+                  src={`https://ik.imagekit.io/animesplash/${pkmn.id}.png?tr=w-48,h-48`}
                   alt=""
                 />
               </div>
