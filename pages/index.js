@@ -42,7 +42,7 @@ const Index = ({ pokemon }) => (
                     </div>
                   </div>
                   <p className="mt-1 text-gray-500 text-sm truncate">
-                    Central Security Manager
+                    Weight: {pkmn.weight} Kg
                   </p>
                 </div>
                 <img
