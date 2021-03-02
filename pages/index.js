@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 
 export async function getStaticProps() {
   const fs = require("fs");
@@ -12,6 +13,14 @@ export async function getStaticProps() {
 
 const Index = ({ pokemon }) => (
   <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 sm:p-6 lg:p-8">
+    {/* SEO Metadata */}
+    <Head>
+      <title>JAMStack Pokedex</title>
+      <meta
+        name="description"
+        content="A Kanto's Pokedex, made in JAMStack Architecture"
+      />
+    </Head>
     {pokemon.map((pkmn, key) => (
       <Link key={key} href={`/pokemon/${pkmn.id}`}>
         <a>
