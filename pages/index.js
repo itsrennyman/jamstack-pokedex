@@ -11,18 +11,14 @@ export async function getStaticProps() {
   };
 }
 
-String.prototype.capitalize = function () {
-  return this.charAt(0).toUpperCase() + this.slice(1);
-};
-
 const Index = ({ pokemon }) => (
   <div className="bg-gray-100 min-h-screen">
     <Navbar />
 
     <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 sm:p-6 lg:p-8">
       {pokemon.map((pkmn, key) => (
-        <Link href={`/pokemon/${pkmn.id}`}>
-          <a key={key}>
+        <Link key={key} href={`/pokemon/${pkmn.id}`}>
+          <a>
             <li className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
               <div className="w-full flex items-center justify-between p-6">
                 <div className="flex-1 truncate">
