@@ -35,7 +35,7 @@ const Show = ({ pokemon }) => (
       <div className="max-w-sm flex flex-col p-8 bg-white rounded-lg shadow">
         <img
           className="w-48 h-48 flex-shrink-0 mx-auto"
-          src={`/images/${pokemon.id}.png`}
+          src={`https://ik.imagekit.io/animesplash/${pokemon.id}.png`}
           alt=""
         />
         <h3 className="mt-6 text-gray-900 text-lg font-medium text-center">
