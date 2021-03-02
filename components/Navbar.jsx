@@ -19,12 +19,7 @@ const Navbar = () => (
       </div>
     </div>
 
-    <div
-      x-description="Mobile menu, show/hide based on menu state."
-      className="sm:hidden"
-      id="mobile-menu"
-      x-show="open"
-    >
+    <div className="sm:hidden">
       <div className="pt-2 pb-3 space-y-1">
         <Link href="/">
           <a className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
