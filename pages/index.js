@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 
 export async function getStaticProps() {
@@ -20,36 +21,39 @@ const Index = ({ pokemon }) => (
 
     <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 sm:p-6 lg:p-8">
       {pokemon.map((pkmn, key) => (
-        <li
-          key={key}
-          className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200"
-        >
-          <div className="w-full flex items-center justify-between p-6">
-            <div className="flex-1 truncate">
-              <div className="flex items-center space-x-3">
-                <h3 className="text-gray-900 text-sm font-medium truncate">
-                  {pkmn.name.capitalize()}
-                </h3>
-                {pkmn.types.map((type, key) => (
-                  <span
-                    key={key}
-                    className="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full"
-                  >
-                    {type.type.name.capitalize()}
-                  </span>
-                ))}
+        <Link href={`/pokemon/${pkmn.id}`}>
+          <a key={key}>
+            <li className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
+              <div className="w-full flex items-center justify-between p-6">
+                <div className="flex-1 truncate">
+                  <div className="flex items-center space-x-3">
+                    <h3 className="text-gray-900 text-sm font-medium truncate">
+                      {pkmn.name.capitalize()}
+                    </h3>
+                    <div className="flex space-x-1">
+                      {pkmn.types.map((type, key) => (
+                        <span
+                          key={key}
+                          className="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full"
+                        >
+                          {type.type.name.capitalize()}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <p className="mt-1 text-gray-500 text-sm truncate">
+                    Central Security Manager
+                  </p>
+                </div>
+                <img
+                  className="w-12 h-12 flex-shrink-0"
+                  src={`/images/${pkmn.id}.png`}
+                  alt=""
+                />
               </div>
-              <p className="mt-1 text-gray-500 text-sm truncate">
-                Central Security Manager
-              </p>
-            </div>
-            <img
-              className="w-12 h-12 flex-shrink-0"
-              src={`/images/${pkmn.id}.png`}
-              alt=""
-            />
-          </div>
-        </li>
+            </li>
+          </a>
+        </Link>
       ))}
     </ul>
   </div>
